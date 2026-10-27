@@ -54,7 +54,7 @@ python minecoauthor.py
 └── coauthor_patterns.csv # Final ranked output patterns (Generated Output)
 ```
 
-## QUESTION 
+## QUESTIONS
 
 ## A)
 To efficiently mine close co-author relationships from the massive DBLP dataset (>5 GB), we can apply a streaming-based association analysis approach:
