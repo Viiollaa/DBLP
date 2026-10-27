@@ -54,7 +54,8 @@ python minecoauthor.py
 └── coauthor_patterns.csv # Final ranked output patterns (Generated Output)
 ```
 
-QUESTION 
+## QUESTION 
+
 A) To efficiently mine close co-author relationships from the massive DBLP dataset (>5 GB), we can apply a streaming-based association analysis approach:
 
 Efficient Streaming Extraction: Because the standard XML parser struggles with the large file size and special entity errors, we use a line-by-line streaming parser with Regular Expressions (re) to extract author names from <article> and <inproceedings> tags safely and quickly, writing them into a structured text file (coauthors.txt).
