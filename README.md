@@ -56,7 +56,8 @@ python minecoauthor.py
 
 ## QUESTION 
 
-A) To efficiently mine close co-author relationships from the massive DBLP dataset (>5 GB), we can apply a streaming-based association analysis approach:
+```A)```
+To efficiently mine close co-author relationships from the massive DBLP dataset (>5 GB), we can apply a streaming-based association analysis approach:
 
 Efficient Streaming Extraction: Because the standard XML parser struggles with the large file size and special entity errors, we use a line-by-line streaming parser with Regular Expressions (re) to extract author names from <article> and <inproceedings> tags safely and quickly, writing them into a structured text file (coauthors.txt).
 
@@ -64,7 +65,8 @@ Minimum Support Pruning: To eliminate random pairings or rare collaborations, we
 
 Pair Generation & Correlation Computation: Using combination tools (itertools.combinations), we group authors by paper, generate unique pairs of co-authors, count individual and joint occurrences, and compute null-invariant correlation measures (Kulczynski and Cosine). The final results are exported to coauthor_patterns.csv.
 
-B)The Advantage of Null-Invariant Measures (Kulczynski & Cosine): In co-authorship networks, the vast magnitude of author pairs never collaborate at all (resulting in massive true negatives / zero-frequency pairs). Traditional measures like Lift or Confidence are heavily skewed by these unshared zeroes. Conversely, null-invariant measures like Kulczynski and Cosine are completely unaffected by the massive number of author pairs who do not share publications.
+## B) 
+The Advantage of Null-Invariant Measures (Kulczynski & Cosine): In co-authorship networks, the vast magnitude of author pairs never collaborate at all (resulting in massive true negatives / zero-frequency pairs). Traditional measures like Lift or Confidence are heavily skewed by these unshared zeroes. Conversely, null-invariant measures like Kulczynski and Cosine are completely unaffected by the massive number of author pairs who do not share publications.
 
 Kulczynski vs. Cosine:
 
