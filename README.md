@@ -63,7 +63,7 @@ python minecoauthor.py
 
 ## QUESTIONS
 
-### A) Propose a method to efficiently mine a set of coauthor relationships that are closely correlated (e.g. often coauthoring papers together).###
+### A) Propose a method to efficiently mine a set of coauthor relationships that are closely correlated (e.g. often coauthoring papers together). ###
 
 To efficiently mine close co-author relationships from the massive DBLP dataset (>5 GB), we can apply a streaming-based association analysis approach:
 
