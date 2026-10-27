@@ -14,6 +14,13 @@ Install the required Python packages by running the following command in your te
 pip install pandas numpy
 ```
 
+
+---
+## 📥 Dataset Source & Download
+The raw DBLP XML dataset (`dblp.xml`) is required to run the extraction script. You can obtain it using the official sources below:
+* **Direct XML Dump Download:** [https://dblp.org/xml/](https://dblp.org/xml/)[cite: 3]
+* **Download & Parsing FAQ Guide:** [https://dblp.org/faq/How+can+l+download+the+whole+dblp+dataset.html](https://dblp.org/faq/How+can+l+download+the+whole+dblp+dataset.html)[cite: 3]
+
 ---
 
 ## 🚀 How to Run the Project (Step-by-Step Guide)
