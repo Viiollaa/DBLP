@@ -13,14 +13,14 @@ This project analyzes collaboration patterns between researchers in the DBLP dat
 
 ---
 
-## 🛠️ Environment Setup & Prerequisites
+## 🛠️ Requirements and Installation
 
 Make sure you have **Python 3** installed on your system. 
 
 Install the required Python packages by running the following command in your terminal:
 
-```bash
-pip install pandas numpy
+```powershell
+python -m pip install pandas
 ```
 
 
