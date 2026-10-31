@@ -5,6 +5,7 @@ A Python-based project for parsing large-scale DBLP XML datasets, extracting co-
 ---
 
 ## 📖 Project Overview
+
 This project analyzes collaboration patterns between researchers in the DBLP dataset. The goal is to identify author pairs who frequently publish together and evaluate how closely they collaborate. Instead of relying only on the number of co-authored papers, this project also considers the proportion of publications shared by each author.
 
 **Workflow:**
@@ -19,16 +20,42 @@ Make sure you have **Python 3** installed on your system.
 
 Install the required Python packages by running the following command in your terminal:
 
-```powershell
+```bash
 python -m pip install pandas
 ```
 
+Although only `pandas` was explicitly installed, `numpy` was also installed as a dependency. The following screenshot shows the successful installation of `pandas` and `numpy`.
+![Package installation](images/1.png)
+
+The following command was used to verify that both packages were available in the Python environment:
+
+```bash
+python -m pip show pandas numpy
+```
+
+This command confirmed that:
+- `pandas` version: **3.1.0**
+- `numpy` version: **2.5.4**
+![Package verification](images/2.png)
 
 ---
+
 ## 📥 Dataset Source & Download
+
 The raw DBLP XML dataset (`dblp.xml`) is required to run the extraction script. You can obtain it using the official sources below:
 * **Direct XML Dump Download:** [https://dblp.org/xml/](https://dblp.org/xml/)
 * **Download & Parsing FAQ Guide:** [https://dblp.org/faq/How+can+l+download+the+whole+dblp+dataset.html](https://dblp.org/faq/How+can+l+download+the+whole+dblp+dataset.html)
+
+The XML file was saved locally as `dblp.xml` in the project directory. The following PowerShell command was used to verify that the dataset file existed and to inspect its size:
+
+```bash
+Get-Item .\dblp.xml | Select-Object Name, Length
+```
+
+The output confirmed that:
+- File name: `dblp.xml`
+- File size: **5,380,520,125 bytes**
+![Dataset verification](images/3.png)
 
 ---
 
@@ -63,6 +90,9 @@ python minecoauthor.py
 ## 📁 File Structure
 
 ```text
+DBLP-project/
+├── .vscode/
+│   └── settings.json     # VS Code Python environment preference; not part of the mining algorithm
 ├── dblp.py               # Script for parsing and cleaning dblp.xml
 ├── minecoauthor.py       # Script for mining frequent patterns & correlation
 ├── dblp.xml              # Raw dataset (Input)
