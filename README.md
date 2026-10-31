@@ -25,6 +25,7 @@ python -m pip install pandas
 ```
 
 Although only `pandas` was explicitly installed, `numpy` was also installed as a dependency. The following screenshot shows the successful installation of `pandas` and `numpy`.
+
 ![Package installation](./1.png)
 
 The following command was used to verify that both packages were available in the Python environment:
