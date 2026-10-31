@@ -57,7 +57,7 @@ Get-Item .\dblp.xml | Select-Object Name, Length
 The output confirmed that:
 - File name: `dblp.xml`
 - File size: **5,380,520,125 bytes**
-- 
+ 
 ![Dataset verification](./3.png)
 
 ---
@@ -94,8 +94,6 @@ python minecoauthor.py
 
 ```text
 DBLP-project/
-├── .vscode/
-│   └── settings.json     # VS Code Python environment preference; not part of the mining algorithm
 ├── dblp.py               # Script for parsing and cleaning dblp.xml
 ├── minecoauthor.py       # Script for mining frequent patterns & correlation
 ├── dblp.xml              # Raw dataset (Input)
