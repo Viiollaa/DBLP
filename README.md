@@ -37,7 +37,8 @@ python -m pip show pandas numpy
 This command confirmed that:
 - `pandas` version: **3.1.0**
 - `numpy` version: **2.5.4**
-![Package verification](images/2.png)
+
+![Package verification](./2.png)
 
 ---
 
@@ -56,7 +57,8 @@ Get-Item .\dblp.xml | Select-Object Name, Length
 The output confirmed that:
 - File name: `dblp.xml`
 - File size: **5,380,520,125 bytes**
-![Dataset verification](images/3.png)
+- 
+![Dataset verification](./3.png)
 
 ---
 
@@ -100,6 +102,20 @@ DBLP-project/
 ├── coauthors.txt         # Cleaned transactions (Intermediate Output)
 └── coauthor_patterns.csv # Final ranked output patterns (Generated Output)
 ```
+
+### ⚙️ VS Code configuration
+
+The recorded `.vscode/settings.json` contains:
+
+```json
+{
+  "python-envs.defaultEnvManager": "ms-python.python:system"
+}
+```
+
+This configures a VS Code Python environment preference. It does **not** change the co-author mining formula or output.
+
+---
 
 ## QUESTIONS
 
