@@ -3,9 +3,14 @@
 A Python-based project for parsing large-scale DBLP XML datasets, extracting co-author relationships, and mining closely-correlated co-author pairs using null-invariant measures (Kulczynski and Cosine).
 
 ---
+
 ## 📖 Project Overview
 This project analyzes collaboration patterns between researchers in the DBLP dataset. The goal is to identify author pairs who frequently publish together and evaluate how closely they collaborate. Instead of relying only on the number of co-authored papers, this project also considers the proportion of publications shared by each author.
+**Workflow:**
 
+`dblp.xml` → `dblp.py` → `coauthors.txt` → `minecoauthor.py` → `coauthor_patterns.csv`
+
+---
 
 ## 🛠️ Environment Setup & Prerequisites
 
