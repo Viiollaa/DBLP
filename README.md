@@ -88,6 +88,20 @@ python minecoauthor.py
 * **Sample Input:** `coauthors.txt`
 * **Generated Output:** `coauthor_patterns.csv` (CSV file containing ranked closely-correlated co-author pairs)
 
+### Step 3 — Inspect pair rankings and statistics (recorded command)
+
+```powershell
+python -c "import pandas as pd; df=pd.read_csv('coauthor_patterns.csv'); print('Total frequent pairs:', len(df)); print('\nTop 10 by Kulczynski:'); print(df.head(10).to_string(index=False)); print('\nTop 10 by co-authored papers:'); print(df.sort_values('Co_authored_papers', ascending=False).head(10).to_string(index=False)); print('\nStatistics:'); print(df[['Co_authored_papers','Kulczynski','Cosine']].describe())"
+```
+
+### Step 4 — Compare correlation measures (recorded command)
+
+```powershell
+python -c "import pandas as pd; df=pd.read_csv('coauthor_patterns.csv'); print('Kulczynski > Cosine:', (df['Kulczynski'] > df['Cosine']).sum()); print('Kulczynski == Cosine:', (df['Kulczynski'] == df['Cosine']).sum()); print('Kulczynski < Cosine:', (df['Kulczynski'] < df['Cosine']).sum()); print('\nTop 10 by Cosine:'); print(df.sort_values('Cosine', ascending=False).head(10).to_string(index=False))"
+```
+
+The next two sections interpret the **recorded outputs**. The included screenshots show the results inspection, not the console output of the two initial script runs.
+
 ---
 
 ## 📁 File Structure
@@ -100,18 +114,6 @@ DBLP-project/
 ├── coauthors.txt         # Cleaned transactions (Intermediate Output)
 └── coauthor_patterns.csv # Final ranked output patterns (Generated Output)
 ```
-
-### ⚙️ VS Code configuration
-
-The recorded `.vscode/settings.json` contains:
-
-```json
-{
-  "python-envs.defaultEnvManager": "ms-python.python:system"
-}
-```
-
-This configures a VS Code Python environment preference. It does **not** change the co-author mining formula or output.
 
 ---
 
@@ -127,21 +129,11 @@ Minimum Support Pruning: To eliminate random pairings or rare collaborations, we
 
 Pair Generation & Correlation Computation: Using combination tools (itertools.combinations), we group authors by paper, generate unique pairs of co-authors, count individual and joint occurrences, and compute null-invariant correlation measures (Kulczynski and Cosine). The final results are exported to coauthor_patterns.csv.
 
+![Terminal: frequent pairs, top Kulczynski and co-authored papers](./4-1.png)
+
+![Terminal: descriptive statistics](./4-2.png)
+
 ### B) Based on the mining results and the pattern evaluation measures discussed in this chapter, discuss which measure may convincingly uncover close collaboration patterns better than others. ###
-
-The Advantage of Null-Invariant Measures (Kulczynski & Cosine): In co-authorship networks, the vast magnitude of author pairs never collaborate at all (resulting in massive true negatives / zero-frequency pairs). Traditional measures like Lift or Confidence are heavily skewed by these unshared zeroes. Conversely, null-invariant measures like Kulczynski and Cosine are completely unaffected by the massive number of author pairs who do not share publications.
-
-Kulczynski vs. Cosine:
-
-Kulczynski is defined as the average conditional probability of participation between two authors. It performs exceptionally well in identifying true collaboration bonds even if one author is exceptionally prolific (publishing with many different people) while the other has a lower overall publication count.
-
-Therefore, Kulczynski (backed by Cosine) is the most convincing measure to uncover close collaboration patterns because it fairly balances joint frequency against individual productivity without being biased by network sparseness.
-
-
-
-ini bisa di ganti jadi 
-
-### **Answer for Question (b)**
 
 #### **1. Why Standard Measures (Confidence & Lift) Fail**
 
@@ -159,6 +151,8 @@ To solve this issue, we must use **Null-Invariant Measures** like **Kulczynski**
 * **Why Kulczynski is the Best Choice:** Kulczynski calculates the average of bidirectional conditional probabilities:
   $$\text{Kulc}(A, B) = \frac{1}{2} (P(A|B) + P(B|A))$$
   This provides a balanced evaluation. For example, if a senior professor publishes 100 papers a year and a student publishes 5 papers (all 5 with that professor), Kulczynski correctly identifies their strong bond without being penalized by the professor's high publication count.
+
+![Terminal: Kulczynski compared with Cosine](./5.png)
 
 ---
 
